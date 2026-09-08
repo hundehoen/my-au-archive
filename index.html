@@ -286,7 +286,65 @@
             .intro-grid {
                 grid-template-columns: 1fr;
             }
-        }
+        }/* Grid 3 Main Character */
+.main-char-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.char-preview-card {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.char-preview-card:hover {
+    transform: translateY(-4px);
+}
+
+.char-preview-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.char-preview-card p {
+    font-weight: 600;
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+/* Tombol Selengkapnya */
+.btn-more-char {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-more-char:hover {
+    background-color: #f0f0f0;
+}
+
+@media (max-width: 600px) {
+    .main-char-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
@@ -325,9 +383,33 @@
         <p>Sebagai mahasiswa Arsitektur tahun ketiga, Luca selalu menjalani perkuliahan seadanya. Namun, memasuki semester genap, Luca memutuskan berbenah dan mengembalikan performa akademiknya demi bisa cepat lulus dan membuktikan dirinya pada ayahnya.</p>
         <p>Tak ia sangka, keputusan itu justru membawanya berurusan dengan Arkan, asisten dosen mata kuliah Pengendalian dan Penjadwalan Proyek. Mata kuliah Teknik Sipil ini ia ambil agar bisa dikonversi menjadi mata kuliah Arsitektur. Sosok Arkan yang kelewat teratur dan selalu mengoreksi langkahnya seketika jadi orang paling menyebalkan di mata Luca. Luca tak pernah tahu bahwa di balik asistensi yang kacau dan tenggat yang selalu terlewat, Arkan justru melihatnya dengan cara yang tak pernah Luca duga.</p>
         <div class="info-tag"><strong>Genre:</strong> Romance, Slice of Life</div>
-        <a href="Character.html" class="info-tag" style="display: block; text-decoration: none; color: inherit;">
-            <strong>Character</strong>
+<!-- KATEGORI KHUSUS CHARACTER -->
+<section id="character-preview" class="section-card">
+    <h2 class="section-title">Character</h2>
+    
+    <!-- Preview 3 Main Character -->
+    <div class="main-char-grid">
+        <a href="arkan-detail.html" class="char-preview-card">
+            <img src="ch001.jpg" alt="Arkan">
+            <p>Arkan Ganendra</p>
         </a>
+        <a href="luca-detail.html" class="char-preview-card">
+            <img src="ch002.jpg" alt="Luca">
+            <p>Luca Wijaya</p>
+        </a>
+        <a href="leo-detail.html" class="char-preview-card">
+            <img src="ch003.png" alt="Leo">
+            <p>Vincent Leonen</p>
+        </a>
+    </div>
+
+    <!-- Tombol Lihat Selengkapnya -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="Character.html" class="btn-more-char">
+            Ketuk untuk melihat selengkapnya &rarr;
+        </a>
+    </div>
+</section>
     </div>
 
     <!-- TAMBAHKAN BAGIAN SPOTIFY INI TEPAT DI BAWAH INTRO-DETAILS -->
