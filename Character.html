@@ -15,7 +15,6 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        /* Layout Grid untuk kartu karakter */
         .character-grid {
             display: flex;
             gap: 20px;
@@ -23,12 +22,11 @@
             flex-wrap: wrap;
             margin-top: 30px;
         }
-        /* Tampilan kartu yang bisa diklik */
         .character-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            width: 220px;
+            width: 320px;
             text-decoration: none;
             color: #333;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -41,8 +39,8 @@
         }
         .character-card img {
             width: 100%;
-            height: 260px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
         }
         .character-name {
             padding: 15px;
