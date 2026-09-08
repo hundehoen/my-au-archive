@@ -234,6 +234,57 @@
             color: #888;
             border-top: 1px solid #eee;
         }
+        /* Bikin layout intro membagi 2 kolom */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            align-items: start;
+        }
+        
+        /* Styling Gambar Spotify */
+        .spotify-card {
+            position: relative;
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .spotify-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .spotify-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        .spotify-card:hover .spotify-overlay {
+            opacity: 1;
+        }
+        
+        /* Biar rapi pas dibuka di HP */
+        @media (max-width: 600px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
