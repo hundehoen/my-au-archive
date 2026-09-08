@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AU Archive & Tracker</title>
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f7f8fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        
+        .hero-banner {
+            background-color: #0066ff; 
+            color: #ffffff;
+            padding: 30px 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .hero-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .hero-image-grid img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        
+        .category-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #ffffff;
+            border-bottom: 2px solid #edf0f5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: #555;
+            padding: 14px 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            color: #0066ff;
+            background-color: #f0f5ff;
+        }
+
+        
+        .content {
+            padding: 30px 25px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #0066ff;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            background-color: #f4f7fc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .intro-details h3 {
+            font-size: 1.3rem;
+            color: #0066ff;
+            margin-bottom: 10px;
+        }
+
+        .intro-details p {
+            font-size: 0.9rem;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .info-tag {
+            font-size: 0.82rem;
+            background: #ffffff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            border: 1px solid #e1e6f0;
+        }
+
+        .intro-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .intro-gallery img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        
+        .au-card {
+            background: #ffffff;
+            border: 1px solid #e8ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .au-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .au-header h3 {
+            font-size: 1.15rem;
+        }
+
+        .status-badge {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-badge.ongoing { background: #fff3bf; color: #d97706; }
+        .status-badge.completed { background: #d1fae5; color: #059669; }
+
+        
+        .chapter-list {
+            margin-top: 15px;
+        }
+
+        .chapter-list ul {
+            list-style: none;
+        }
+
+        .chapter-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8fafc;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+        }
+
+        .btn-tweet {
+            background-color: #0066ff;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-tweet:hover {
+            background-color: #004ecc;
+        }
+
+        /* RESPONSIVE UNTUK TAMPILAN HP */
+        @media (max-width: 600px) {
+            .hero-banner {
+                grid-template-columns: 1fr;
+            }
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    
+    <header class="hero-banner">
+        <div class="hero-text">
+            <h1>Hai, Arkan & Luca Universe</h1>
+            <p>Archive web untuk universe ArkanLuca.</p>
+        </div>
+        <div class="hero-image-grid">
+            <!-- Ganti src dengan link/foto kamu sendiri nanti -->
+            <img src="moodboard1.jpg" alt="Moodboard 1">
+            <img src="moodboard2.jpg" alt="Moodboard 1">
+        </div>
+    </header>
+
+    <!-- NAVIGASI BAR -->
+    <nav class="category-nav">
+        <a href="#intro" class="nav-btn">Intro</a>
+        <a href="#main-story" class="nav-btn">Main Story</a>
+        <a href="#what-if" class="nav-btn">What If...</a>
+        <a href="#few-tweet" class="nav-btn">Few Tweets</a>
+    </nav>
+
+    <main class="content">
+
+        <!-- KATEGORI 1: INTRODUCTION -->
+        <section id="intro">
+            <h2 class="section-title">Introduction & Profile</h2>
+            <div class="intro-grid">
+                <div class="intro-details">
+                    <h3>ArkanLuca</h3>
+                    <p>Ga tau njir, ntar dlu, pusing kocak.</p>
+                    <div class="info-tag"><strong>Genre:</strong> Romance, Slice of Life</div>
+                    <div class="info-tag"><strong>Character</strong>
+                    <div class="info-tag"><strong>CW:</strong> Mentions of hars word</div>
+                
+                </div>
+            </div>
+        </section>
+
+        <!-- KATEGORI 2: MAIN STORY -->
+        <section id="main-story">
+            <h2 class="section-title">Main Story</h2>
+            <article class="au-card">
+                <div class="au-header">
+                    <h3>Alur Utama AU</h3>
+                    <span class="status-badge ongoing">Ongoing</span>
+                </div>
+                <p style="font-size: 0.9rem; color: #666;">Urutan part bersambung dari cerita utama.</p>
+                <div class="chapter-list">
+                    <ul>
+                        <li>
+                            <span>Part 1
+                            <a href="https://x.com" target="_blank" class="btn-tweet">Buka Tweet</a>
+                        </li>
+                        <li>
+                            <span>Part 2
+                            <a href="https://x.com" target="_blank" class="btn-tweet">Buka Tweet</a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <!-- KATEGORI 3: WHAT IF... -->
+        <section id="what-if">
+            <h2 class="section-title">What If...</h2>
+            <article class="au-card">
+                <div class="au-header">
+                    <h3>Skenario Alternatif</h3>
+                    <span class="status-badge completed">Completed</span>
+                </div>
+                <div class="chapter-list">
+                    <ul>
+                        <li>
+                            <span>Kumpulan What if character</span>
+                            <a href="https://x.com" target="_blank" class="btn-tweet">Buka Tweet</a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+<!-- KATEGORI 4: FEW TWEETS -->
+        <section id="few-tweets">
+            <h2 class="section-title">Few Tweets</h2>
+            <article class="au-card">
+                <div class="au-header">
+                    <h3>Side Story & Chat Random</h3>
+                </div>
+                <div class="chapter-list">
+                    <ul>
+                        <li>
+                            <span>Penjadwalan dan Pengendalian Proyek</span>
+                            <a href="https://x.com" target="_blank" class="btn-tweet">Buka Tweet</a>
+                        </li>
+                        <li>
+                            <span>Luca sakit</span>
+                            <a href="https://x.com" target="_blank" class="btn-tweet">Buka Tweet</a>
+                        </li>
+                        <li>
+                            <span>Call</span>
+                            <a href="https://x.com" target="_blank" class="btn-tweet">Buka Tweet</a>
+                        </li>
+                        <li>
+                            <span>Hardisk</span>
+                            <a href="https://x.com" target="_blank" class="btn-tweet">Buka Tweet</a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>dibuat untuk tracking au x/twitter</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
